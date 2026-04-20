@@ -60,17 +60,26 @@
     <h1>Do you love me? 💕</h1>
     <button class="yes" onclick="yesLove()">Yes 💖</button>
     <button class="no" onclick="noLove()">No 😏</button>
+    <br>
+    <button onclick="goBack('page2','page1')">⬅️ Back</button>
   </div>
 
   <!-- Page 3 -->
   <div id="page3" class="page">
     <div id="result"></div>
+    <br>
+    <button onclick="goBack('page3','page2')">⬅️ Back</button>
   </div>
 
   <script>
     function nextPage() {
       document.getElementById("page1").classList.remove("active");
       document.getElementById("page2").classList.add("active");
+    }
+
+    function goBack(from, to) {
+      document.getElementById(from).classList.remove("active");
+      document.getElementById(to).classList.add("active");
     }
 
     function yesLove() {
