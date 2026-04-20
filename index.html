@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>For My Puchki 💖</title>
+  <title>For my Puchki 💖</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      overflow: hidden;
+      font-family: Arial;
       background: linear-gradient(to right, #ff9a9e, #fad0c4);
       display: flex;
       justify-content: center;
@@ -18,21 +17,11 @@
       color: white;
     }
 
-    .page {
-      display: none;
-    }
+    .page { display: none; }
+    .active { display: block; }
 
-    .active {
-      display: block;
-    }
-
-    h1 {
-      font-size: 40px;
-    }
-
-    p {
-      font-size: 20px;
-    }
+    h1 { font-size: 40px; }
+    p { font-size: 22px; }
 
     button {
       padding: 12px 25px;
@@ -43,19 +32,17 @@
       cursor: pointer;
     }
 
-    .yes {
-      background: #ff4d6d;
-      color: white;
-    }
-
-    .no {
-      background: white;
-      color: #ff4d6d;
-    }
+    .yes { background: #ff4d6d; color: white; }
+    .no { background: white; color: #ff4d6d; }
 
     .big-love {
-      font-size: 30px;
+      font-size: 32px;
       margin-top: 20px;
+    }
+
+    .highlight {
+      color: yellow;
+      font-weight: bold;
     }
   </style>
 </head>
@@ -65,7 +52,6 @@
   <!-- Page 1 -->
   <div id="page1" class="page active">
     <h1>Hello puchki 💖</h1>
-    <p>Tap below...</p>
     <button onclick="nextPage()">Next ➡️</button>
   </div>
 
@@ -73,8 +59,11 @@
   <div id="page2" class="page">
     <h1>Do you love me? 💕</h1>
     <button class="yes" onclick="yesLove()">Yes 💖</button>
-    <button class="no" onclick="noLove()">No 🙈</button>
+    <button class="no" onclick="noLove()">No 😏</button>
+  </div>
 
+  <!-- Page 3 -->
+  <div id="page3" class="page">
     <div id="result"></div>
   </div>
 
@@ -85,18 +74,24 @@
     }
 
     function yesLove() {
+      document.getElementById("page2").classList.remove("active");
+      document.getElementById("page3").classList.add("active");
+
       document.getElementById("result").innerHTML = `
-        <p>Give me 1000 kisses 😘😘😘</p>
-       <p>b2 ka photo</p>
+        <h1>KISS 😘</h1>
+        <p>Kiss only 😘😘😘</p>
+        <p class="highlight">b2 ka photo bhejo !!</p>
         <div class="big-love">I LOVE YOU 💖</div>
       `;
     }
 
     function noLove() {
+      document.getElementById("page2").classList.remove("active");
+      document.getElementById("page3").classList.add("active");
+
       document.getElementById("result").innerHTML = `
-        <p>No kisses 😢</p>
-       <p>only b2 ka photo</p>
-        <div class="big-love">I Love u Susmita !!!💖</div>
+        <h1>HOW DARE YOU 😡😡😡</h1>
+        <p>You pressed NO!! 😤</p>
       `;
     }
   </script>
